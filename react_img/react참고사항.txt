@@ -114,6 +114,20 @@ function App() {
 추가적으로 component안에서 다른 링크로 routing하려면 import { Link } from "react-router-dom";
 한 뒤에 <Link to="/movie">{title}</Link> 식으로 <Link>으로 감싼다. => SPA가능(새로고침 x)
 
+await는 async안에 있지 않으면 사용할 수 없다.
+
+동적으로 라우팅하는 방법
+<Route path="/movie/:id"> 
+  <Detail/>
+</Route>
+에서 /movie/:id 부분
+
+<Link to={`/movie/${id}`}>{title}</Link> 에서 ${id}를 통해 id를 전달받고 App.js의 Route에서 id를 전달받는다
+그리고 해당 페이지로 들어간뒤 url의 id값을 가져오기 위해서는
+import { useParams } from "react-router-dom"; 하고
+const {id} = useParams(); // <Route path="/movie/:id">에서 :id의 값을 받아온다
+
+------------------------------------------------
 
 
 
